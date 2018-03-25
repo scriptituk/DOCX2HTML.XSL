@@ -42,7 +42,21 @@
 				</xsl:when>
 				<xsl:when test="local-name(.)='b'">font-weight:bold;</xsl:when>
 				<xsl:when test="local-name(.)='i'">font-style:italic;</xsl:when>
-				<xsl:when test="local-name(.)='u'">text-decoration:underline;</xsl:when>
+                <xsl:when test="local-name(.)='u'">
+				    <output>text-decoration:underline;</output>
+					<xsl:choose>
+                        <xsl:when test="@w:val='double'">text-decoration-style:double;</xsl:when>
+                        <xsl:when test="@w:val='dotted'">text-decoration-style:dotted;</xsl:when>
+                        <xsl:when test="@w:val='dash'">text-decoration-style:dashed;</xsl:when>
+                        <xsl:when test="@w:val='wave'">text-decoration-style:wavy;</xsl:when>
+					</xsl:choose>
+                </xsl:when>
+				<xsl:when test="local-name(.)='strike'">text-decoration:line-through;</xsl:when>
+				<xsl:when test="local-name(.)='caps'">text-transform:uppercase;</xsl:when>
+				<xsl:when test="local-name(.)='smallCaps'">font-variant:small-caps;</xsl:when>
+
+                <xsl:when test="local-name(.)='vertAlign' and @w:val='superscript'">font-size:.83em;vertical-align:super;</xsl:when> <!-- RCL -->
+                <xsl:when test="local-name(.)='vertAlign' and @w:val='subscript'">font-size:.83em;vertical-align:sub;</xsl:when> <!-- RCL -->
 			</xsl:choose>
 		</xsl:for-each>
 	</xsl:template>
