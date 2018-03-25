@@ -1,3 +1,6 @@
+####
+Added support for more styles. Thank you Ottoville for this excellent work and Saxonce example.
+
 # DOCX2HTML
 This project is aim to create perfect conversion from docx fileformat to html with XSLT stylesheet.
 
