@@ -40,9 +40,9 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:when>
-				<xsl:when test="local-name(.)='b'">font-weight:bold;</xsl:when>
-				<xsl:when test="local-name(.)='i'">font-style:italic;</xsl:when>
-                <xsl:when test="local-name(.)='u'">
+				<xsl:when test="local-name(.)='b' and not(@w:val='false')">font-weight:bold;</xsl:when>
+				<xsl:when test="local-name(.)='i' and not(@w:val='false')">font-style:italic;</xsl:when>
+                <xsl:when test="local-name(.)='u' and not(@w:val='none')">
 				    <output>text-decoration:underline;</output>
 					<xsl:choose>
                         <xsl:when test="@w:val='double'">text-decoration-style:double;</xsl:when>
@@ -55,8 +55,8 @@
 				<xsl:when test="local-name(.)='caps'">text-transform:uppercase;</xsl:when>
 				<xsl:when test="local-name(.)='smallCaps'">font-variant:small-caps;</xsl:when>
 
-                <xsl:when test="local-name(.)='vertAlign' and @w:val='superscript'">font-size:.83em;vertical-align:super;</xsl:when> <!-- RCL -->
-                <xsl:when test="local-name(.)='vertAlign' and @w:val='subscript'">font-size:.83em;vertical-align:sub;</xsl:when> <!-- RCL -->
+                <xsl:when test="local-name(.)='vertAlign' and @w:val='superscript'">font-size:.83em;vertical-align:super;</xsl:when>
+                <xsl:when test="local-name(.)='vertAlign' and @w:val='subscript'">font-size:.83em;vertical-align:sub;</xsl:when>
 			</xsl:choose>
 		</xsl:for-each>
 	</xsl:template>
